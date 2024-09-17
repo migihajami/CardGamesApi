@@ -1,11 +1,6 @@
 ﻿using CGA.Common.Exceptions;
 using CGA.Common.Models;
 using FluentAssertions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CGA.Testing.Common.Models
 {
