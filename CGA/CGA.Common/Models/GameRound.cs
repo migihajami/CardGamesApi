@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CGA.Common.Models
 {
-    internal class GameRound
+    public class GameRound
     {
     }
 }
