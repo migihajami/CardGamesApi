@@ -10,7 +10,7 @@ namespace CGA.Common.Tools
             { "Eight", 8 }, { "Nine", 9 }, { "Ten", 10 }, { "Jack", 10 }, { "Queen", 10 }, { "King", 10 }, { "Ace", 11 }
         };
 
-        public List<Card> GetDeck()
+        public static List<Card> GetDeck()
         {
             var cards = new List<Card>();
             foreach (SuitEnum suit in (SuitEnum[])Enum.GetValues(typeof( SuitEnum)))
