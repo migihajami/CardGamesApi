@@ -3,18 +3,13 @@ using CGA.Common.Exceptions;
 using CGA.Common.Models;
 using FluentAssertions;
 using NSubstitute;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CGA.Testing.Common.Models
 {
     [TestClass]
     public class BlackJackPlayerHandTests
     {
-        BlackJackPlayerHand _hand = new BlackJackPlayerHand();
+        IBlackJackPlayerHand _hand = new BlackJackPlayerHand();
 
         [TestMethod]
         public void Hit_On_BlackJack()
