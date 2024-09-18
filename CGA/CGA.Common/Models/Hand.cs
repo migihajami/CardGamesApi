@@ -74,7 +74,7 @@ namespace CGA.Common.Models
         }
     }
 
-    public class BlackJackPlayerHand : BlackJackHand
+    public class BlackJackPlayerHand : BlackJackHand, IBlackJackPlayerHand
     {
         public decimal BetAmount { get; set; }
         public bool IsDoubled { get; set; }
@@ -84,7 +84,7 @@ namespace CGA.Common.Models
             BetAmount *= 2;
             var result = Hit(machine);
             IsDoubled = true;
-            
+
             return result;
         }
 
@@ -101,7 +101,7 @@ namespace CGA.Common.Models
 
     }
 
-    public class BlackJackDealerHand : BlackJackHand
+    public class BlackJackDealerHand : BlackJackHand, IBlackJackDealerHand
     {
         public int MakeHand(IShuffleMachine machine)
         {
