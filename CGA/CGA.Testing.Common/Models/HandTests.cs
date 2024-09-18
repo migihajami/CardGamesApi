@@ -8,7 +8,7 @@ namespace CGA.Testing.Common.Models
     [TestClass]
     public class HandTests
     {
-        private HandTester? _hand;
+        private HandTester _hand = new HandTester();
 
         [TestInitialize]
         public void Initialize() 

@@ -13,14 +13,12 @@ namespace CGA.Testing.Common.Models
     [TestClass]
     public class BlackJackHandTests
     {
-        IShuffleMachine _shuffleMachine;
-        BlackJackHandTester _blackJackHand;
+        BlackJackHandTester _blackJackHand = new BlackJackHandTester();
 
         [TestInitialize]
         public void Initialize()
         {
-            _blackJackHand = new BlackJackHandTester();
-
+            
         }
 
         [TestMethod]

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CGA.Common.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,7 @@ namespace CGA.Common.Models
         public Guid HandId { get; set; }
         protected List<Card> Cards { get; set; } = new List<Card>();
 
-        public void AddCard(Card card)
+        public void AddCard(Card? card)
         {
             if (card == null)
                 throw new ArgumentNullException();
@@ -66,7 +67,7 @@ namespace CGA.Common.Models
             return result;
         }
 
-        public int Hit(IShuffleMachine machine)
+        public virtual int Hit(IShuffleMachine machine)
         {
             AddCard(machine.Hit());
             return GetValue();
@@ -80,11 +81,23 @@ namespace CGA.Common.Models
 
         public int Double(IShuffleMachine machine)
         {
-            IsDoubled = true;
             BetAmount *= 2;
-            return Hit(machine);
+            var result = Hit(machine);
+            IsDoubled = true;
+            
+            return result;
         }
 
+        public override int Hit(IShuffleMachine machine)
+        {
+            if (IsDoubled)
+                throw new HitOnDoubledHandException();
+
+            if (GetValue() == 21)
+                throw new HitOn21Exception();
+
+            return base.Hit(machine);
+        }
 
     }
 
