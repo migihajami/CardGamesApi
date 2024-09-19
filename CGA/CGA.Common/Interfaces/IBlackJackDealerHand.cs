@@ -1,10 +1,11 @@
-﻿namespace CGA.Common.Models
+﻿using CGA.Common.Models;
+
+namespace CGA.Common.Interfaces
 {
-    public interface IBlackJackDealerHand
+    public interface IBlackJackDealerHand: IBlackJackHand, IHand
     {
         Card GetFirstCard();
         int Hit(IShuffleMachine machine);
         int MakeHand(IShuffleMachine machine);
-        bool HasBlackJack {  get; }
     }
 }

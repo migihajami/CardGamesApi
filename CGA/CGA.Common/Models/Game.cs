@@ -1,14 +1,8 @@
 ﻿using CGA.Common.Enums;
+using CGA.Common.Interfaces;
 
 namespace CGA.Common.Models
 {
-    public interface IGame
-    {
-        void Init();
-        void StartRound();
-        void FinishRound();
-
-    }
 
     public abstract class Game: IGame
     {

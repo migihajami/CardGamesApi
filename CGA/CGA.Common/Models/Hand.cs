@@ -1,4 +1,5 @@
 ﻿using CGA.Common.Exceptions;
+using CGA.Common.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,12 +8,6 @@ using System.Threading.Tasks;
 
 namespace CGA.Common.Models
 {
-    public interface IHand
-    {
-        void AddCard(Card? card);
-        void Flush();
-        List<Card> GetCards();
-    }
 
     public abstract class Hand : IHand
     {
@@ -36,14 +31,6 @@ namespace CGA.Common.Models
         {
             return Cards.ToList();
         }
-    }
-
-    public interface IBlackJackHand
-    {
-        int GetValue();
-        int Hit(IShuffleMachine machine);
-
-        bool HasBlackJack { get; }
     }
 
     public abstract class BlackJackHand : Hand, IBlackJackHand, IHand

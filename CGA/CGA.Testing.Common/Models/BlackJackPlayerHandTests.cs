@@ -1,5 +1,6 @@
 ﻿using CGA.Common.Enums;
 using CGA.Common.Exceptions;
+using CGA.Common.Interfaces;
 using CGA.Common.Models;
 using FluentAssertions;
 using NSubstitute;
