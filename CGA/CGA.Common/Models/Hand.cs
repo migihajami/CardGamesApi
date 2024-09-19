@@ -7,7 +7,14 @@ using System.Threading.Tasks;
 
 namespace CGA.Common.Models
 {
-    public abstract class Hand
+    public interface IHand
+    {
+        void AddCard(Card? card);
+        void Flush();
+        List<Card> GetCards();
+    }
+
+    public abstract class Hand : IHand
     {
         public Guid HandId { get; set; }
         protected List<Card> Cards { get; set; } = new List<Card>();
@@ -20,7 +27,7 @@ namespace CGA.Common.Models
             Cards.Add(card);
         }
 
-        public void Flush()
+        public virtual void Flush()
         {
             Cards.Clear();
         }
@@ -31,7 +38,15 @@ namespace CGA.Common.Models
         }
     }
 
-    public abstract class BlackJackHand : Hand
+    public interface IBlackJackHand
+    {
+        int GetValue();
+        int Hit(IShuffleMachine machine);
+
+        bool HasBlackJack { get; }
+    }
+
+    public abstract class BlackJackHand : Hand, IBlackJackHand, IHand
     {
         public bool HasBlackJack => GetValue() == 21 && Cards.Count == 2;
 
@@ -97,6 +112,12 @@ namespace CGA.Common.Models
                 throw new HitOn21Exception();
 
             return base.Hit(machine);
+        }
+
+        public override void Flush()
+        {
+            BetAmount = 0;
+            base.Flush();
         }
 
     }

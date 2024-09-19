@@ -61,5 +61,13 @@ namespace CGA.Testing.Common.Models
             Action act = () => _hand.Hit(shuffleMachine);
             act.Should().Throw<HitOnDoubledHandException>();
         }
+
+        [TestMethod]
+        public void Flush()
+        {
+            _hand.BetAmount = 100;
+            _hand.Flush();
+            _hand.BetAmount.Should().Be(0);
+        }
     }
 }

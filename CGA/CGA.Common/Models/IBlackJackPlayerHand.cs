@@ -1,6 +1,8 @@
-﻿namespace CGA.Common.Models
+﻿using System.Threading.Tasks.Dataflow;
+
+namespace CGA.Common.Models
 {
-    public interface IBlackJackPlayerHand
+    public interface IBlackJackPlayerHand: IBlackJackHand, IHand
     {
         int Double(IShuffleMachine machine);
         int Hit(IShuffleMachine machine);
