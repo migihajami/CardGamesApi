@@ -13,24 +13,5 @@ namespace CGA.Common.Models
         public abstract void Init();
         public abstract void StartRound();
 
-
-    }
-
-    public class BlackJackGame : Game
-    {
-        public override void FinishRound()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void Init()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void StartRound()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

@@ -1,4 +1,7 @@
-﻿namespace CGA.Common.Interfaces
+﻿using CGA.Common.Enums;
+using CGA.Common.Models;
+
+namespace CGA.Common.Interfaces
 {
     public interface IGame
     {

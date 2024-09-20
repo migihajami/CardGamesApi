@@ -6,7 +6,6 @@ namespace CGA.Common.Interfaces
     public interface IBlackJackPlayerHand : IBlackJackHand, IHand
     {
         int Double(IShuffleMachine machine);
-        int Hit(IShuffleMachine machine);
 
         decimal BetAmount { get; set; }
         bool IsDoubled { get; set; }
